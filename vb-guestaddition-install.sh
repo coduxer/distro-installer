@@ -11,3 +11,9 @@ mkdir "$EXTRACT_DIR"
 
 wget https://download.virtualbox.org/virtualbox/$VB_LATEST_VERSION/VBoxGuestAdditions_$VB_LATEST_VERSION.iso -P "$TMP_DIR"
 7z x "$TMP_DIR/VBoxGuestAdditions_$VB_LATEST_VERSION.iso" -o$EXTRACT_DIR
+echo $EXTRACT_DIR
+chmod +x $EXTRACT_DIR/autorun.sh
+$EXTRACT_DIR/autorun.sh
+sleep 2
+PID=`pgrep -f "VirtualBox*"`
+tail --pid=$PID -f /dev/null
