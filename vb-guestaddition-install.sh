@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 if ! [ -x "$(command -v 7z)" ]; then
     echo '7z is not installed, installing...' 
     sudo apt-get install p7zip-full
@@ -23,6 +23,6 @@ sed -i 's#/bin/read##g' "$EXTRACT_DIR/autorun.sh"
 sed -i 's#read junk##g' "$EXTRACT_DIR/VBoxLinuxAdditions.run"
 $EXTRACT_DIR/autorun.sh
 sleep 2
-PID=`pgrep -f "VirtualBox*"`
-lsof -p $PID +r 1 &>/dev/null
-#tail --pid=$PID -f /dev/null
+PID=`pgrep -f "VirtualBox Guest Additions"`
+#lsof -p $PID +r 1 &>/dev/null
+tail --pid=$PID -f /dev/null
