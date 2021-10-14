@@ -38,3 +38,8 @@ sudo cp /tmp/vtoyboot /usr/local/bin/vtoyboot
 sudo chmod +x /usr/local/bin/vtoyboot
 sudo rm /tmp/vtoyboot
 #rm -rf $EXTRACT_DIR
+sudo echo '#!/bin/bash' > /tmp/zzz-vtoyboot
+sudo echo "/usr/local/bin/vtoyboot" >> /tmp/zzz-vtoyboot
+sudo cp /tmp/zzz-vtoyboot /etc/kernel/postinst.d
+sudo chmod +x /etc/kernel/postinst.d/zzz-vtoyboot
+sudo vtoyboot
