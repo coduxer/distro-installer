@@ -12,6 +12,7 @@ source "$config"
 if [[ "${VIRTUALMACHINE}" == "true" ]]; then
     ./vm/vb-guestaddition-install.sh
     ./vm/vtoyboot-deploy.sh
+    ./vm/fix-grub-timeout.sh
 fi
 
 
