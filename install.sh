@@ -9,6 +9,12 @@ fi
 
 source "$config"
 
+if [[ "${VIRTUALMACHINE}" == "true" ]]; then
+    ./vm/vb-guestaddition-install.sh
+    ./vm/vtoyboot-deploy.sh
+fi
+
+
 for app in "${APPS[@]}"; do
-    echo "${app}"
+    "./apps/$app.sh"
 done
