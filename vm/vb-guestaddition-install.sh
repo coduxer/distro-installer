@@ -5,6 +5,11 @@ if ! [ -x "$(command -v 7z)" ]; then
     sudo apt-get install p7zip-full
 fi
 
+if ! [ -x "$(command -v curl)" ]; then
+    echo 'curl is not installed, installing...' 
+    sudo apt-get install curl
+fi
+
 VB_LATEST_VERSION=`curl -s http://download.virtualbox.org/virtualbox/LATEST.TXT`
 VB_ISO_FILE_NAME="VBoxGuestAdditions_$VB_LATEST_VERSION.iso"
 TMP_DIR=`mktemp -d`
